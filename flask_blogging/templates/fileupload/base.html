@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     {% block style %}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
-    <style>
-        body { padding-top: 80px;}
-    </style>
+    <link href="/static/css/style.css" rel="stylesheet"/>
+<script src="/static/js/703e23c9-lazysizes-noscript-native-loading.5.1.2.min.js" defer></script>
+
     {% endblock style %}
     {% block extrastyle %}
     {% endblock extrastyle %}
@@ -16,22 +16,9 @@
     </title>
 </head>
 <body>
-
-    <!-- navbar header -->
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="/" class="navbar-brand">
-                    {{ config.BLOGGING_SITENAME or 'Flask-Blogging'}}
-                </a>
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-        </div>
-    </div>
+   {% include "blogging/header.html" %}
+<div class="p-strip" style="min-height: 100vh; font-family: 'Ubuntu', sans-serif; font-size: 16px;">
+<div class="row u-position">
 
     <!-- main content -->
      <div class="container">
@@ -59,7 +46,14 @@
          {% block extramain %}
          {% endblock extramain %}
      </div>
+     </div>
+     </div>
     {% include "blogging/analytics.html" %}
+        {% include "blogging/footer.html" %}
+        <script src="/static/js/theme.js"></script>
+        <script defer src="/static/js/buttons.js"></script>
+        <script src="/static/js/scripts.js"></script>
+    
     {% block js %}
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
